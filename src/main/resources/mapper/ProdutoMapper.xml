@@ -1,0 +1,11 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="br.com.benchmark.jpa_vs_mybatis.mapper.ProdutoMapper">
+
+    <insert id="saveAll" parameterType="java.util.List">
+        INSERT INTO produto (nome, preco, quantidade) VALUES
+        <foreach collection="list" item="produto" separator=",">
+            (#{produto.nome}, #{produto.preco}, #{produto.quantidade})
+        </foreach>
+    </insert>
+
+</mapper>
